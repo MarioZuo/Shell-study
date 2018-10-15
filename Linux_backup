@@ -1,0 +1,21 @@
+tar
+这里进行一次全备份，备份指令格式为：
+tar -g 记录文件名 -zcf 压缩得到的文件名称 目标文件夹
+记录文件如果不存在，会自动创建，里边记录的是关于文件夹中数据的信息，还原时需要用到。
+增量备份
+tar -g 记录文件名 -zcf 压缩得到的文件名称 目标文件夹
+tar不能做差异备份，只能做增量备份，dump可以做：
+https://www.cnblogs.com/Joseph/articles/1891614.html
+格式：dump [-level#] [-acmMnqSuv] [-A file] [-B records] [-b blocksize]
+[-d density] [-D file] [-e inode#,inode#,...] [-E file]
+[-f file] [-h level] [-I nr errors] [-j zlevel] [-Q file]
+[-s feet] [-T date] [-y] [-z zlevel] filesystem
+常用参数 Level：备份级别0-9
+-B:指定用来备份的磁带的长度，以KB为单位（有些磁带不支持以结束标志判断时，就需要使用到此参数
+-b：指定块大小，默认为10
+-d：指定密度，默认为1600BPI
+-D:设定存储数据库的名称和路径，默认是/etc/dumpdates文件
+（-e，-E：与备份文件的inodes数有关的参数）
+-f：指定备份文件的路径和名称
+-u：更新数据库文件/etc/dumpdates
+-s：统计备份所需的空间，一般在备份前做，以防磁带或磁盘空间不足  
