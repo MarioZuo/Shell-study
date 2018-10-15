@@ -1,0 +1,9 @@
+#!/bin/bash
+#Backup data per month, delete the data longer than one month.
+
+bak_cycle=35 #The backup cycle is 30 days.
+full_bak_cycle=7 #Full backup every week.
+diff_bak_cycle=1 #Difference backup everyday
+rm_cycle=35 #The deletion cycle is 30 days.
+
+tar -g bak -cPzf 
