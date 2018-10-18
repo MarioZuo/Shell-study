@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "主机名:$(hostname)"
+echo "IPv4:$(ifconfig|head -n2|tail -n1|tr -s " " ":"|cut -d: -f 3)" #或者使用ifconfig|head -n2|tail -n1|awk '{print $2}'
+echo "操作系统版本:$(cat /etc/redhat-release)"
+echo "内核版本:$(cat /proc/version|awk '{print $3}')" #或者使用cut -d: -f 3
+echo "CPU型号:$(cat /proc/cpuinfo|grep "model name"|cut -d: -f 2)"
+echo "内存大小:$(free -h|grep "Mem"|tr -s " " ","|cut -d, -f 2)"
+echo "硬盘大小:$(fdisk -l|grep "GB"|cut -d: -f 2|cut -d, -f 1)"
