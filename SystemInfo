@@ -7,3 +7,4 @@ echo "内核版本:$(cat /proc/version|awk '{print $3}')" #或者使用cut -d: -
 echo "CPU型号:$(cat /proc/cpuinfo|grep "model name"|cut -d: -f 2)"
 echo "内存大小:$(free -h|grep "Mem"|tr -s " " ","|cut -d, -f 2)"
 echo "硬盘大小:$(fdisk -l|grep "GB"|cut -d: -f 2|cut -d, -f 1)"
+echo "硬盘使用率最大值为:$(df -h|awk '{print $5}'|sort -nr|head -n1)"
